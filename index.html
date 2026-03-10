@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Protocol — Payment Ecosystem</title>
   <meta name="description" content="Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders.">
   <meta property="og:title" content="Protocol — Payment Ecosystem">
-  <meta property="og:description" content="Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders.">
+  <meta property="og:description"
+    content="Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://protocol-s.io/">
   <link rel="canonical" href="https://protocol-s.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --bg-primary: #060b11;
@@ -35,7 +45,10 @@
       --font-heading: 'Space Grotesk', 'Inter', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: var(--font-body);
       background: var(--bg-primary);
@@ -45,190 +58,382 @@
       overflow-x: hidden;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .container--narrow { max-width: 800px; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--narrow {
+      max-width: 800px;
+    }
 
     /* NAV */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
       background: rgba(6, 11, 17, 0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
     }
+
     .nav__inner {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       height: 72px;
     }
+
     .nav__logo {
-      display: flex; align-items: center; gap: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-family: var(--font-heading);
-      font-size: 1.4rem; font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 600;
       color: var(--text-primary);
-      text-decoration: none; letter-spacing: -0.02em;
+      text-decoration: none;
+      letter-spacing: -0.02em;
     }
+
     .nav__logo-icon {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       background: linear-gradient(135deg, var(--accent), #0066cc);
       border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.1rem; color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
     }
-    .nav__logo sup { font-size: 0.55em; opacity: 0.5; margin-left: 1px; }
-    .nav__links { display: flex; align-items: center; gap: 8px; }
+
+    .nav__logo sup {
+      font-size: 0.55em;
+      opacity: 0.5;
+      margin-left: 1px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .nav__link {
-      color: var(--text-secondary); text-decoration: none;
-      font-size: 0.9rem; font-weight: 500;
-      padding: 8px 16px; border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
       transition: all 0.2s;
     }
-    .nav__link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+
+    .nav__link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
 
     .nav__lang {
-      display: flex; align-items: center; gap: 2px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
       margin-left: 12px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-sm);
       padding: 3px;
     }
+
     .nav__lang-btn {
-      background: none; border: none; color: var(--text-muted);
-      font-size: 0.8rem; font-weight: 600;
-      padding: 6px 12px; border-radius: 7px;
-      cursor: pointer; transition: all 0.2s;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s;
       font-family: var(--font-body);
     }
+
     .nav__lang-btn.active {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       color: var(--text-primary);
     }
 
     .nav__cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
-      font-size: 0.85rem; font-weight: 600;
-      padding: 10px 22px; border-radius: var(--radius-sm);
-      text-decoration: none; border: none; cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
       transition: all 0.25s;
       font-family: var(--font-body);
     }
-    .nav__cta:hover { background: #3aa0ff; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(30,144,255,0.3); }
+
+    .nav__cta:hover {
+      background: #3aa0ff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(30, 144, 255, 0.3);
+    }
 
     .nav__burger {
-      display: none; background: none; border: none;
-      width: 40px; height: 40px; cursor: pointer;
-      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      display: none;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
     }
+
     .nav__burger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--text-primary); border-radius: 2px;
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
       transition: all 0.3s;
     }
 
     .nav__mobile {
-      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: var(--bg-primary);
-      flex-direction: column; padding: 32px 24px; gap: 8px; z-index: 999;
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 8px;
+      z-index: 999;
     }
-    .nav__mobile.open { display: flex; }
-    .nav__mobile .nav__link { font-size: 1.1rem; padding: 14px 16px; }
-    .nav__mobile .nav__lang { margin: 16px 0; align-self: flex-start; }
-    .nav__mobile .nav__cta { align-self: flex-start; margin-top: 8px; }
+
+    .nav__mobile.open {
+      display: flex;
+    }
+
+    .nav__mobile .nav__link {
+      font-size: 1.1rem;
+      padding: 14px 16px;
+    }
+
+    .nav__mobile .nav__lang {
+      margin: 16px 0;
+      align-self: flex-start;
+    }
+
+    .nav__mobile .nav__cta {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
 
     @media (max-width: 768px) {
-      .nav__links { display: none; }
-      .nav__burger { display: flex; }
+      .nav__links {
+        display: none;
+      }
+
+      .nav__burger {
+        display: flex;
+      }
     }
 
     /* HERO */
     .hero {
       padding: 160px 0 120px;
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
+
     .hero::before {
-      content: ''; position: absolute; top: -200px; right: -200px;
-      width: 600px; height: 600px;
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
       pointer-events: none;
     }
+
     .hero::after {
-      content: ''; position: absolute; bottom: -100px; left: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(30,144,255,0.04) 0%, transparent 70%);
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(30, 144, 255, 0.04) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero__inner { position: relative; z-index: 1; max-width: 720px; }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
     .hero__badge {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--accent-dim);
       color: var(--accent);
-      font-size: 0.82rem; font-weight: 600;
-      padding: 8px 18px; border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 100px;
       margin-bottom: 32px;
       border: 1px solid var(--border-accent);
     }
+
     .hero__badge-dot {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       background: var(--accent);
       animation: pulse 2s infinite;
     }
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
     }
+
     .hero__title {
       font-family: var(--font-heading);
       font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700; line-height: 1.1;
+      font-weight: 700;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
     }
-    .hero__title span { color: var(--accent); }
+
+    .hero__title span {
+      color: var(--accent);
+    }
+
     .hero__subtitle {
-      font-size: 1.15rem; line-height: 1.7;
+      font-size: 1.15rem;
+      line-height: 1.7;
       color: var(--text-secondary);
-      max-width: 540px; margin-bottom: 40px;
+      max-width: 540px;
+      margin-bottom: 40px;
     }
-    .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-family: var(--font-body);
-      font-size: 0.95rem; font-weight: 600;
-      padding: 14px 28px; border-radius: var(--radius-sm);
-      text-decoration: none; cursor: pointer;
-      transition: all 0.25s; border: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
     }
+
     .btn--primary {
-      background: var(--accent); color: #fff;
+      background: var(--accent);
+      color: #fff;
     }
-    .btn--primary:hover { background: #3aa0ff; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(30,144,255,0.3); }
+
+    .btn--primary:hover {
+      background: #3aa0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(30, 144, 255, 0.3);
+    }
+
     .btn--secondary {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text-primary);
       border: 1px solid var(--border);
     }
-    .btn--secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.12); }
-    .btn svg { width: 16px; height: 16px; }
+
+    .btn--secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+    }
 
     /* SECTIONS */
-    .section { padding: 100px 0; position: relative; }
-    .section--alt { background: var(--bg-secondary); }
-    .section__header { text-align: center; margin-bottom: 64px; }
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section--alt {
+      background: var(--bg-secondary);
+    }
+
+    .section__header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
     .section__label {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--accent); font-size: 0.82rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 16px;
     }
+
     .section__title {
       font-family: var(--font-heading);
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 700; letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 16px;
     }
+
     .section__desc {
-      font-size: 1.05rem; color: var(--text-secondary);
-      max-width: 600px; margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     /* FEATURE GRID */
@@ -237,6 +442,7 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 16px;
     }
+
     .feature-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -244,37 +450,63 @@
       padding: 32px;
       transition: all 0.3s;
     }
+
     .feature-card:hover {
       border-color: var(--border-accent);
       background: var(--bg-card-hover);
       transform: translateY(-2px);
     }
+
     .feature-card__icon {
-      width: 48px; height: 48px; border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 20px;
       color: var(--accent);
     }
-    .feature-card__icon svg { width: 22px; height: 22px; }
+
+    .feature-card__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
     .feature-card__title {
       font-family: var(--font-heading);
-      font-size: 1.1rem; font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 600;
       margin-bottom: 10px;
     }
+
     .feature-card__text {
-      font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
     }
+
     .feature-card__list {
-      list-style: none; padding: 0;
-      font-size: 0.9rem; color: var(--text-secondary);
+      list-style: none;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
+
     .feature-card__list li {
-      padding: 4px 0 4px 20px; position: relative;
+      padding: 4px 0 4px 20px;
+      position: relative;
     }
+
     .feature-card__list li::before {
-      content: ''; position: absolute; left: 0; top: 12px;
-      width: 6px; height: 6px; border-radius: 50%;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       background: var(--accent);
     }
 
@@ -284,12 +516,19 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
+
     @media (max-width: 1024px) {
-      .features-compact { grid-template-columns: repeat(3, 1fr); }
+      .features-compact {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
+
     @media (max-width: 640px) {
-      .features-compact { grid-template-columns: repeat(2, 1fr); }
+      .features-compact {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     .fc-item {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -298,23 +537,52 @@
       text-align: center;
       transition: all 0.3s;
     }
+
     .fc-item:hover {
       border-color: var(--border-accent);
       background: var(--bg-card-hover);
     }
+
     .fc-item__icon {
-      width: 44px; height: 44px; border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px; color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--accent);
     }
-    .fc-item__icon svg { width: 20px; height: 20px; }
-    .fc-item__title { font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
-    .fc-item__text { font-size: 0.8rem; color: var(--text-secondary); }
+
+    .fc-item__icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .fc-item__title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .fc-item__text {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
 
     /* STEPS */
-    .steps { display: flex; gap: 24px; }
-    @media (max-width: 768px) { .steps { flex-direction: column; } }
+    .steps {
+      display: flex;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+      }
+    }
+
     .step {
       flex: 1;
       background: var(--bg-card);
@@ -324,23 +592,47 @@
       position: relative;
       transition: all 0.3s;
     }
-    .step:hover { border-color: var(--border-accent); }
+
+    .step:hover {
+      border-color: var(--border-accent);
+    }
+
     .step__number {
       font-family: var(--font-heading);
-      font-size: 3rem; font-weight: 700;
-      color: var(--accent); opacity: 0.15;
-      position: absolute; top: 16px; right: 24px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.15;
+      position: absolute;
+      top: 16px;
+      right: 24px;
     }
+
     .step__title {
       font-family: var(--font-heading);
-      font-size: 1.15rem; font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 600;
       margin-bottom: 10px;
     }
-    .step__text { font-size: 0.9rem; color: var(--text-secondary); }
+
+    .step__text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
 
     /* CARDS ROW */
-    .cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 768px) { .cards-row { grid-template-columns: 1fr; } }
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .info-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -348,959 +640,1292 @@
       padding: 36px 28px;
       transition: all 0.3s;
     }
-    .info-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+
+    .info-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
+
     .info-card__title {
       font-family: var(--font-heading);
-      font-size: 1.15rem; font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 600;
       margin-bottom: 10px;
     }
-    .info-card__text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    .info-card__text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
 
     /* SPLIT SECTION */
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    @media (max-width: 768px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
     .split__content {}
+
     .split__label {
-      color: var(--accent); font-size: 0.82rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 16px;
     }
+
     .split__title {
       font-family: var(--font-heading);
       font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 700; letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 20px;
     }
+
     .split__text {
-      font-size: 1rem; color: var(--text-secondary); line-height: 1.7;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
       margin-bottom: 24px;
     }
-    .split__features { display: flex; flex-direction: column; gap: 16px; }
-    .split__feature {
-      display: flex; gap: 14px; align-items: flex-start;
+
+    .split__features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
+
+    .split__feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
     .split__feature-icon {
-      width: 36px; height: 36px; min-width: 36px;
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
       border-radius: 10px;
       background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--accent);
     }
-    .split__feature-icon svg { width: 18px; height: 18px; }
-    .split__feature-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
-    .split__feature-text { font-size: 0.85rem; color: var(--text-secondary); }
+
+    .split__feature-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .split__feature-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .split__feature-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
     .split__visual {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 48px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-height: 400px;
       position: relative;
       overflow: hidden;
     }
+
     .split__visual::before {
-      content: ''; position: absolute; inset: 0;
+      content: '';
+      position: absolute;
+      inset: 0;
       background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 60%);
     }
+
     .split__visual-mockup {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column; gap: 12px;
-      width: 100%; max-width: 320px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
     }
+
     .mockup-bar {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      border-radius: 12px; padding: 16px 20px;
-      display: flex; align-items: center; gap: 12px;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
+
     .mockup-bar__dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent); opacity: 0.6;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.6;
     }
+
     .mockup-bar__line {
-      height: 8px; border-radius: 4px;
-      background: rgba(255,255,255,0.06);
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
     }
-    .mockup-bar--highlight { border-color: var(--border-accent); }
-    .mockup-bar--highlight .mockup-bar__dot { opacity: 1; }
+
+    .mockup-bar--highlight {
+      border-color: var(--border-accent);
+    }
+
+    .mockup-bar--highlight .mockup-bar__dot {
+      opacity: 1;
+    }
 
     /* PARTNER */
     .partner-section {
       background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     }
+
     .partner-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) * 1.5);
       padding: 64px;
       text-align: center;
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
+
     .partner-box::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 300px; height: 2px;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
+
     .partner-box__title {
       font-family: var(--font-heading);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700; margin-bottom: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
+
     .partner-box__desc {
-      font-size: 1rem; color: var(--text-secondary);
-      max-width: 500px; margin: 0 auto 32px;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 32px;
     }
+
     .partner-box__perks {
-      display: flex; justify-content: center; gap: 32px;
-      margin-bottom: 36px; flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
     }
+
     .partner-box__perk {
-      display: flex; align-items: center; gap: 8px;
-      color: var(--text-secondary); font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
-    .partner-box__perk svg { color: var(--accent); width: 18px; height: 18px; }
+
+    .partner-box__perk svg {
+      color: var(--accent);
+      width: 18px;
+      height: 18px;
+    }
+
     .partner-form {
-      display: flex; gap: 12px;
-      max-width: 480px; margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
     }
-    @media (max-width: 520px) { .partner-form { flex-direction: column; } }
+
+    @media (max-width: 520px) {
+      .partner-form {
+        flex-direction: column;
+      }
+    }
+
     .partner-form__input {
-      flex: 1; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border); border-radius: var(--radius-sm);
-      padding: 14px 18px; color: var(--text-primary);
-      font-size: 0.95rem; font-family: var(--font-body);
-      outline: none; transition: border-color 0.2s;
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
     }
-    .partner-form__input::placeholder { color: var(--text-muted); }
-    .partner-form__input:focus { border-color: var(--accent); }
+
+    .partner-form__input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .partner-form__input:focus {
+      border-color: var(--accent);
+    }
 
     /* FOOTER */
     .footer {
       border-top: 1px solid var(--border);
       padding: 48px 0;
     }
+
     .footer__inner {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
     }
-    .footer__copy { color: var(--text-muted); font-size: 0.85rem; }
-    .footer__socials { display: flex; gap: 12px; }
+
+    .footer__copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 12px;
+    }
+
     .footer__social {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: rgba(255,255,255,0.05);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-secondary); text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
       transition: all 0.2s;
     }
+
     .footer__social:hover {
       background: var(--accent-dim);
       border-color: var(--border-accent);
       color: var(--accent);
     }
-    .footer__social svg { width: 18px; height: 18px; }
+
+    .footer__social svg {
+      width: 18px;
+      height: 18px;
+    }
 
     /* POPUP */
     .popup-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(0,0,0,0.7);
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
       padding: 24px;
     }
-    .popup-overlay.open { display: flex; }
+
+    .popup-overlay.open {
+      display: flex;
+    }
+
     .popup {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) * 1.5);
-      padding: 48px; max-width: 460px; width: 100%;
+      padding: 48px;
+      max-width: 460px;
+      width: 100%;
       position: relative;
     }
+
     .popup__close {
-      position: absolute; top: 16px; right: 16px;
-      background: none; border: none; color: var(--text-muted);
-      cursor: pointer; width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 8px; transition: all 0.2s;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: all 0.2s;
     }
-    .popup__close:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+
+    .popup__close:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+
     .popup__title {
       font-family: var(--font-heading);
-      font-size: 1.5rem; font-weight: 700;
+      font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 8px;
     }
-    .popup__desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 28px; }
-    .popup__form { display: flex; flex-direction: column; gap: 12px; }
-    .popup__input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border); border-radius: var(--radius-sm);
-      padding: 14px 18px; color: var(--text-primary);
-      font-size: 0.95rem; font-family: var(--font-body);
-      outline: none; transition: border-color 0.2s;
+
+    .popup__desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
     }
-    .popup__input::placeholder { color: var(--text-muted); }
-    .popup__input:focus { border-color: var(--accent); }
+
+    .popup__form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .popup__input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .popup__input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .popup__input:focus {
+      border-color: var(--accent);
+    }
 
     /* SCROLL TOP */
     .scroll-top {
-      position: fixed; bottom: 32px; right: 32px;
-      width: 48px; height: 48px; border-radius: 14px;
-      background: var(--accent); color: #fff;
-      border: none; cursor: pointer;
-      display: none; align-items: center; justify-content: center;
-      box-shadow: 0 8px 24px rgba(30,144,255,0.3);
-      transition: all 0.3s; z-index: 999;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(30, 144, 255, 0.3);
+      transition: all 0.3s;
+      z-index: 999;
     }
-    .scroll-top.visible { display: flex; }
-    .scroll-top:hover { transform: translateY(-2px); }
-    .scroll-top svg { width: 20px; height: 20px; }
+
+    .scroll-top.visible {
+      display: flex;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-2px);
+    }
+
+    .scroll-top svg {
+      width: 20px;
+      height: 20px;
+    }
 
     /* ANIMATIONS */
     .fade-in {
-      opacity: 0; transform: translateY(24px);
+      opacity: 0;
+      transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .fade-in-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .fade-in-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .fade-in-delay-4 {
+      transition-delay: 0.4s;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="container">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <div class="nav__logo-icon">P</div>
-        protocol<sup>®</sup>
-      </a>
-      <div class="nav__links">
-        <a href="#merchants" class="nav__link" data-i18n="nav_merchants">For Merchants</a>
-        <a href="#traders" class="nav__link" data-i18n="nav_traders">For Traders</a>
-        <a href="#partner" class="nav__link" data-i18n="nav_partner">Partner Program</a>
-        <div class="nav__lang">
-          <button class="nav__lang-btn active" data-lang="en">EN</button>
-          <button class="nav__lang-btn" data-lang="ko">한국어</button>
-        </div>
-        <button class="nav__cta" onclick="openPopup()" data-i18n="nav_contact">Contact Us</button>
-      </div>
-      <button class="nav__burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="nav__mobile" id="mobileMenu">
-  <a href="#merchants" class="nav__link" data-i18n="nav_merchants" onclick="closeMobile()">For Merchants</a>
-  <a href="#traders" class="nav__link" data-i18n="nav_traders" onclick="closeMobile()">For Traders</a>
-  <a href="#partner" class="nav__link" data-i18n="nav_partner" onclick="closeMobile()">Partner Program</a>
-  <div class="nav__lang">
-    <button class="nav__lang-btn active" data-lang="en">EN</button>
-    <button class="nav__lang-btn" data-lang="ko">한국어</button>
-  </div>
-  <button class="nav__cta" onclick="openPopup(); closeMobile();" data-i18n="nav_contact">Contact Us</button>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero__inner">
-      <div class="hero__badge fade-in">
-        <span class="hero__badge-dot"></span>
-        <span data-i18n="hero_badge">Payment Ecosystem</span>
-      </div>
-      <h1 class="hero__title fade-in fade-in-delay-1">
-        <span data-i18n="hero_title_accent">Fiat & Crypto</span><br>
-        <span data-i18n="hero_title_rest">Acquiring Solutions</span>
-      </h1>
-      <p class="hero__subtitle fade-in fade-in-delay-2" data-i18n="hero_subtitle">
-        Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders. All-in-one payment processing infrastructure.
-      </p>
-      <div class="hero__actions fade-in fade-in-delay-3">
-        <button class="btn btn--primary" onclick="openPopup()" data-i18n="hero_cta">Book Onboarding</button>
-        <a href="#merchants" class="btn btn--secondary" data-i18n="hero_cta2">Learn More
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">
+          <div class="nav__logo-icon">P</div>
+          protocol<sup>®</sup>
         </a>
+        <div class="nav__links">
+          <a href="#merchants" class="nav__link" data-i18n="nav_merchants">For Merchants</a>
+          <a href="#traders" class="nav__link" data-i18n="nav_traders">For Traders</a>
+          <a href="#partner" class="nav__link" data-i18n="nav_partner">Partner Program</a>
+          <div class="nav__lang">
+            <button class="nav__lang-btn active" data-lang="en">EN</button>
+            <button class="nav__lang-btn" data-lang="ko">한국어</button>
+          </div>
+          <button class="nav__cta" onclick="openPopup()" data-i18n="nav_contact">Contact Us</button>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- FOR MERCHANTS -->
-<section class="section section--alt" id="merchants">
-  <div class="container">
-    <div class="section__header fade-in">
-      <div class="section__label" data-i18n="merchants_label">For Merchants</div>
-      <h2 class="section__title" data-i18n="merchants_title">Payment Processing Aggregator</h2>
-      <p class="section__desc" data-i18n="merchants_desc">Aggregator of processing solutions (payment acceptance and mass payouts) for high-risk industries</p>
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#merchants" class="nav__link" data-i18n="nav_merchants" onclick="closeMobile()">For Merchants</a>
+    <a href="#traders" class="nav__link" data-i18n="nav_traders" onclick="closeMobile()">For Traders</a>
+    <a href="#partner" class="nav__link" data-i18n="nav_partner" onclick="closeMobile()">Partner Program</a>
+    <div class="nav__lang">
+      <button class="nav__lang-btn active" data-lang="en">EN</button>
+      <button class="nav__lang-btn" data-lang="ko">한국어</button>
     </div>
-    <div class="features-compact fade-in">
-      <div class="fc-item">
-        <div class="fc-item__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        </div>
-        <div class="fc-item__title" data-i18n="m_feat1_title">Company-Friendly</div>
-        <div class="fc-item__text" data-i18n="m_feat1_text">No holds, chargebacks, or rolling reserve</div>
-      </div>
-      <div class="fc-item">
-        <div class="fc-item__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <div class="fc-item__title" data-i18n="m_feat2_title">Speed & Flexibility</div>
-        <div class="fc-item__text" data-i18n="m_feat2_text">Fast H2H integration with customizable flow</div>
-      </div>
-      <div class="fc-item">
-        <div class="fc-item__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        </div>
-        <div class="fc-item__title" data-i18n="m_feat3_title">24/7 Expert Support</div>
-        <div class="fc-item__text" data-i18n="m_feat3_text">Dedicated specialists with years of FinTech & AI experience</div>
-      </div>
-      <div class="fc-item">
-        <div class="fc-item__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div class="fc-item__title" data-i18n="m_feat4_title">Scalability</div>
-        <div class="fc-item__text" data-i18n="m_feat4_text">Processes millions of $ daily, 24/7</div>
-      </div>
-      <div class="fc-item">
-        <div class="fc-item__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-        </div>
-        <div class="fc-item__title" data-i18n="m_feat5_title">Blockchain Node</div>
-        <div class="fc-item__text" data-i18n="m_feat5_text">Proprietary crypto-processing solutions</div>
-      </div>
-    </div>
+    <button class="nav__cta" onclick="openPopup(); closeMobile();" data-i18n="nav_contact">Contact Us</button>
   </div>
-</section>
 
-<!-- MORE ADVANTAGES -->
-<section class="section" id="advantages">
-  <div class="container">
-    <div class="section__header fade-in">
-      <div class="section__label" data-i18n="adv_label">Advantages</div>
-      <h2 class="section__title" data-i18n="adv_title">More Benefits</h2>
-      <p class="section__desc" data-i18n="adv_desc">P2P is the best method for payment acceptance in the CIS region</p>
-    </div>
-    <div class="features-grid fade-in">
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__badge fade-in">
+          <span class="hero__badge-dot"></span>
+          <span data-i18n="hero_badge">Payment Ecosystem</span>
         </div>
-        <h3 class="feature-card__title" data-i18n="adv1_title">Specialization</h3>
-        <ul class="feature-card__list" data-i18n-html="adv1_list">
-          <li>iGaming (gambling, betting)</li>
-          <li>Forex, Crypto</li>
-          <li>Dating, Adult</li>
-          <li>Loans, Credits</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv2_title">Cascading</h3>
-        <p class="feature-card__text" data-i18n="adv2_text">Declined transactions are redirected to other banks, increasing payment conversion rates</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv3_title">Automation</h3>
-        <ul class="feature-card__list" data-i18n-html="adv3_list">
-          <li>Average transaction processing — 15 seconds</li>
-          <li>Instant 100% verification with callback status</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv4_title">Conversion</h3>
-        <p class="feature-card__text" data-i18n="adv4_text">Best UX widgets and modern tech solutions guarantee 80% average rate, up to 93%. No KYC!</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv5_title">Settlement</h3>
-        <ul class="feature-card__list" data-i18n-html="adv5_list">
-          <li>Daily withdrawal in ~20 min</li>
-          <li>Any currency (USDT, BTC, etc.)</li>
-          <li>No limits on amount or requests</li>
-          <li>Zero fees!</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv6_title">Security</h3>
-        <p class="feature-card__text" data-i18n="adv6_text">Payments processed through a secure connection with PCI DSS standards and local regulations</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv7_title">Deposit/Withdrawal</h3>
-        <p class="feature-card__text" data-i18n="adv7_text">Wide range of transaction amounts and equivalent currencies supported</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv8_title">P2P Methods</h3>
-        <ul class="feature-card__list" data-i18n-html="adv8_list">
-          <li>QR</li>
-          <li>SBP (Faster Payments)</li>
-          <li>Card2Card</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <h3 class="feature-card__title" data-i18n="adv9_title">API</h3>
-        <p class="feature-card__text" data-i18n="adv9_text">Create payin/payout transactions, receive statuses and callbacks through clear and simple documentation</p>
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 48px;" class="fade-in">
-      <button class="btn btn--primary" onclick="openPopup()" data-i18n="adv_cta">Get Conditions</button>
-    </div>
-  </div>
-</section>
-
-<!-- BACKOFFICE -->
-<section class="section section--alt" id="backoffice">
-  <div class="container">
-    <div class="split">
-      <div class="split__content fade-in">
-        <div class="split__label" data-i18n="bo_label">BackOffice</div>
-        <h2 class="split__title" data-i18n="bo_title">Convenient Dashboard</h2>
-        <p class="split__text" data-i18n="bo_text">
-          Covers all operational needs — statements, limits, alerts, history, analytics, and more.
+        <h1 class="hero__title fade-in fade-in-delay-1">
+          <span data-i18n="hero_title_accent">Fiat & Crypto</span><br>
+          <span data-i18n="hero_title_rest">Acquiring Solutions</span>
+        </h1>
+        <p class="hero__subtitle fade-in fade-in-delay-2" data-i18n="hero_subtitle">
+          Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders. All-in-one payment processing
+          infrastructure.
         </p>
-        <button class="btn btn--secondary" onclick="openPopup()" data-i18n="bo_cta">Request a Demo</button>
-      </div>
-      <div class="split__visual fade-in">
-        <div class="split__visual-mockup">
-          <div class="mockup-bar mockup-bar--highlight">
-            <div class="mockup-bar__dot"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:70%"></div>
-              <div class="mockup-bar__line" style="width:45%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar">
-            <div class="mockup-bar__dot" style="opacity:0.3"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:60%"></div>
-              <div class="mockup-bar__line" style="width:85%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar">
-            <div class="mockup-bar__dot" style="opacity:0.3"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:50%"></div>
-              <div class="mockup-bar__line" style="width:30%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar mockup-bar--highlight">
-            <div class="mockup-bar__dot"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:90%"></div>
-              <div class="mockup-bar__line" style="width:40%"></div>
-            </div>
-          </div>
+        <div class="hero__actions fade-in fade-in-delay-3">
+          <button class="btn btn--primary" onclick="openPopup()" data-i18n="hero_cta">Book Onboarding</button>
+          <a href="#merchants" class="btn btn--secondary" data-i18n="hero_cta2">Learn More
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 3 STEPS -->
-<section class="section" id="steps">
-  <div class="container">
-    <div class="section__header fade-in">
-      <div class="section__label" data-i18n="steps_label">Quick Start</div>
-      <h2 class="section__title" data-i18n="steps_title">3 Simple Steps to Start</h2>
-      <p class="section__desc" data-i18n="steps_desc">Connect in a couple of hours. No contracts, approvals, or compliance!</p>
+  <!-- FOR MERCHANTS -->
+  <section class="section section--alt" id="merchants">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="section__label" data-i18n="merchants_label">For Merchants</div>
+        <h2 class="section__title" data-i18n="merchants_title">Payment Processing Aggregator</h2>
+        <p class="section__desc" data-i18n="merchants_desc">Aggregator of processing solutions (payment acceptance and
+          mass payouts) for high-risk industries</p>
+      </div>
+      <div class="features-compact fade-in">
+        <div class="fc-item">
+          <div class="fc-item__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <div class="fc-item__title" data-i18n="m_feat1_title">Company-Friendly</div>
+          <div class="fc-item__text" data-i18n="m_feat1_text">No holds, chargebacks, or rolling reserve</div>
+        </div>
+        <div class="fc-item">
+          <div class="fc-item__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div class="fc-item__title" data-i18n="m_feat2_title">Speed & Flexibility</div>
+          <div class="fc-item__text" data-i18n="m_feat2_text">Fast H2H integration with customizable flow</div>
+        </div>
+        <div class="fc-item">
+          <div class="fc-item__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <div class="fc-item__title" data-i18n="m_feat3_title">24/7 Expert Support</div>
+          <div class="fc-item__text" data-i18n="m_feat3_text">Dedicated specialists with years of FinTech & AI
+            experience</div>
+        </div>
+        <div class="fc-item">
+          <div class="fc-item__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="fc-item__title" data-i18n="m_feat4_title">Scalability</div>
+          <div class="fc-item__text" data-i18n="m_feat4_text">Processes millions of $ daily, 24/7</div>
+        </div>
+        <div class="fc-item">
+          <div class="fc-item__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+          </div>
+          <div class="fc-item__title" data-i18n="m_feat5_title">Blockchain Node</div>
+          <div class="fc-item__text" data-i18n="m_feat5_text">Proprietary crypto-processing solutions</div>
+        </div>
+      </div>
     </div>
-    <div class="steps fade-in">
-      <div class="step">
-        <div class="step__number">01</div>
-        <h3 class="step__title" data-i18n="step1_title">Contact & Brief</h3>
-        <p class="step__text" data-i18n="step1_text">Reach out to us and fill out a short brief describing your business needs</p>
-      </div>
-      <div class="step">
-        <div class="step__number">02</div>
-        <h3 class="step__title" data-i18n="step2_title">API Integration</h3>
-        <p class="step__text" data-i18n="step2_text">Quick H2H API integration with full documentation and dedicated support</p>
-      </div>
-      <div class="step">
-        <div class="step__number">03</div>
-        <h3 class="step__title" data-i18n="step3_title">Start Earning</h3>
-        <p class="step__text" data-i18n="step3_text">Watch your balance grow with our reliable payment processing infrastructure</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOR TRADERS -->
-<section class="section section--alt" id="traders">
-  <div class="container">
-    <div class="split">
-      <div class="split__content fade-in">
-        <div class="split__label" data-i18n="traders_label">For Traders</div>
-        <h2 class="split__title" data-i18n="traders_title">Unlimited Traffic & Full Toolkit</h2>
-        <p class="split__text" data-i18n="traders_text">
-          We provide unlimited traffic and a complete set of proprietary tools for your work. Unique P2P processing method with personal dashboard.
+  <!-- MORE ADVANTAGES -->
+  <section class="section" id="advantages">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="section__label" data-i18n="adv_label">Advantages</div>
+        <h2 class="section__title" data-i18n="adv_title">More Benefits</h2>
+        <p class="section__desc" data-i18n="adv_desc">P2P is the best method for payment acceptance in the CIS region
         </p>
-        <div class="split__features">
-          <div class="split__feature">
-            <div class="split__feature-icon">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <div>
-              <div class="split__feature-title" data-i18n="t_feat1_title">Personal Dashboard</div>
-              <div class="split__feature-text" data-i18n="t_feat1_text">Add payment details, confirm transactions</div>
-            </div>
+      </div>
+      <div class="features-grid fade-in">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
           </div>
-          <div class="split__feature">
-            <div class="split__feature-icon">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-            </div>
-            <div>
-              <div class="split__feature-title" data-i18n="t_feat2_title">Telegram Bot</div>
-              <div class="split__feature-text" data-i18n="t_feat2_text">Payin/payout notifications, request & error history</div>
-            </div>
+          <h3 class="feature-card__title" data-i18n="adv1_title">Specialization</h3>
+          <ul class="feature-card__list" data-i18n-html="adv1_list">
+            <li>iGaming (gambling, betting)</li>
+            <li>Forex, Crypto</li>
+            <li>Dating, Adult</li>
+            <li>Loans, Credits</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
           </div>
-          <div class="split__feature">
-            <div class="split__feature-icon">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-            </div>
-            <div>
-              <div class="split__feature-title" data-i18n="t_feat3_title">SMS & Push Parsing</div>
-              <div class="split__feature-text" data-i18n="t_feat3_text">From banks, using SMS-forwarder technology</div>
-            </div>
+          <h3 class="feature-card__title" data-i18n="adv2_title">Cascading</h3>
+          <p class="feature-card__text" data-i18n="adv2_text">Declined transactions are redirected to other banks,
+            increasing payment conversion rates</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-          <div class="split__feature">
-            <div class="split__feature-icon">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </div>
-            <div>
-              <div class="split__feature-title" data-i18n="t_feat4_title">Rate Parser & Logs</div>
-              <div class="split__feature-text" data-i18n="t_feat4_text">Separate service for currency rates, full request history</div>
-            </div>
+          <h3 class="feature-card__title" data-i18n="adv3_title">Automation</h3>
+          <ul class="feature-card__list" data-i18n-html="adv3_list">
+            <li>Average transaction processing — 15 seconds</li>
+            <li>Instant 100% verification with callback status</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
           </div>
+          <h3 class="feature-card__title" data-i18n="adv4_title">Conversion</h3>
+          <p class="feature-card__text" data-i18n="adv4_text">Best UX widgets and modern tech solutions guarantee 80%
+            average rate, up to 93%. No KYC!</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-i18n="adv5_title">Settlement</h3>
+          <ul class="feature-card__list" data-i18n-html="adv5_list">
+            <li>Daily withdrawal in ~20 min</li>
+            <li>Any currency (USDT, BTC, etc.)</li>
+            <li>No limits on amount or requests</li>
+            <li>Zero fees!</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-i18n="adv6_title">Security</h3>
+          <p class="feature-card__text" data-i18n="adv6_text">Payments processed through a secure connection with PCI
+            DSS standards and local regulations</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-i18n="adv7_title">Deposit/Withdrawal</h3>
+          <p class="feature-card__text" data-i18n="adv7_text">Wide range of transaction amounts and equivalent
+            currencies supported</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-i18n="adv8_title">P2P Methods</h3>
+          <ul class="feature-card__list" data-i18n-html="adv8_list">
+            <li>QR</li>
+            <li>SBP (Faster Payments)</li>
+            <li>Card2Card</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-i18n="adv9_title">API</h3>
+          <p class="feature-card__text" data-i18n="adv9_text">Create payin/payout transactions, receive statuses and
+            callbacks through clear and simple documentation</p>
         </div>
       </div>
-      <div class="split__visual fade-in">
-        <div class="split__visual-mockup">
-          <div class="mockup-bar mockup-bar--highlight">
-            <div class="mockup-bar__dot"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:55%"></div>
-              <div class="mockup-bar__line" style="width:80%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar">
-            <div class="mockup-bar__dot" style="opacity:0.3"></div>
-            <div style="flex:1; display:flex; gap:8px; align-items:center;">
-              <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
-              <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
-              <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
-            </div>
-          </div>
-          <div class="mockup-bar mockup-bar--highlight">
-            <div class="mockup-bar__dot"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:90%"></div>
-              <div class="mockup-bar__line" style="width:65%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar">
-            <div class="mockup-bar__dot" style="opacity:0.3"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:40%"></div>
-              <div class="mockup-bar__line" style="width:72%"></div>
-            </div>
-          </div>
-          <div class="mockup-bar">
-            <div class="mockup-bar__dot" style="opacity:0.3"></div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-              <div class="mockup-bar__line" style="width:60%"></div>
-              <div class="mockup-bar__line" style="width:35%"></div>
-            </div>
-          </div>
-        </div>
+      <div style="text-align: center; margin-top: 48px;" class="fade-in">
+        <button class="btn btn--primary" onclick="openPopup()" data-i18n="adv_cta">Get Conditions</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WORKING WITH US -->
-<section class="section" id="benefits">
-  <div class="container">
-    <div class="section__header fade-in">
-      <div class="section__label" data-i18n="ww_label">Why Protocol</div>
-      <h2 class="section__title" data-i18n="ww_title">Working With Us</h2>
-    </div>
-    <div class="cards-row fade-in">
-      <div class="info-card">
-        <h3 class="info-card__title" data-i18n="ww1_title">User-Friendly Interface</h3>
-        <p class="info-card__text" data-i18n="ww1_text">Simple and intuitive dashboards that require no training to use</p>
+  <!-- BACKOFFICE -->
+  <section class="section section--alt" id="backoffice">
+    <div class="container">
+      <div class="split">
+        <div class="split__content fade-in">
+          <div class="split__label" data-i18n="bo_label">BackOffice</div>
+          <h2 class="split__title" data-i18n="bo_title">Convenient Dashboard</h2>
+          <p class="split__text" data-i18n="bo_text">
+            Covers all operational needs — statements, limits, alerts, history, analytics, and more.
+          </p>
+          <button class="btn btn--secondary" onclick="openPopup()" data-i18n="bo_cta">Request a Demo</button>
+        </div>
+        <div class="split__visual fade-in">
+          <div class="split__visual-mockup">
+            <div class="mockup-bar mockup-bar--highlight">
+              <div class="mockup-bar__dot"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:70%"></div>
+                <div class="mockup-bar__line" style="width:45%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar">
+              <div class="mockup-bar__dot" style="opacity:0.3"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:60%"></div>
+                <div class="mockup-bar__line" style="width:85%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar">
+              <div class="mockup-bar__dot" style="opacity:0.3"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:50%"></div>
+                <div class="mockup-bar__line" style="width:30%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar mockup-bar--highlight">
+              <div class="mockup-bar__dot"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:90%"></div>
+                <div class="mockup-bar__line" style="width:40%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="info-card">
-        <h3 class="info-card__title" data-i18n="ww2_title">Support 24/7</h3>
-        <p class="info-card__text" data-i18n="ww2_text">Dedicated manager assigned to you who will train and resolve any issues</p>
-      </div>
-      <div class="info-card">
-        <h3 class="info-card__title" data-i18n="ww3_title">Conditions</h3>
-        <p class="info-card__text" data-i18n="ww3_text">No limits, individual rates, cryptocurrency buying and selling</p>
-      </div>
     </div>
-    <div style="text-align: center; margin-top: 48px;" class="fade-in">
-      <button class="btn btn--primary" onclick="openPopup()" data-i18n="ww_cta">Quick Onboarding!</button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PARTNER PROGRAM -->
-<section class="section partner-section" id="partner">
-  <div class="container">
-    <div class="partner-box fade-in">
-      <h2 class="partner-box__title" data-i18n="pp_title">Partner Program</h2>
-      <p class="partner-box__desc" data-i18n="pp_desc">Recommend our company to traders and merchants and earn commission!</p>
-      <div class="partner-box__perks">
-        <div class="partner-box__perk">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          <span data-i18n="pp_perk1">High commission %</span>
+  <!-- 3 STEPS -->
+  <section class="section" id="steps">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="section__label" data-i18n="steps_label">Quick Start</div>
+        <h2 class="section__title" data-i18n="steps_title">3 Simple Steps to Start</h2>
+        <p class="section__desc" data-i18n="steps_desc">Connect in a couple of hours. No contracts, approvals, or
+          compliance!</p>
+      </div>
+      <div class="steps fade-in">
+        <div class="step">
+          <div class="step__number">01</div>
+          <h3 class="step__title" data-i18n="step1_title">Contact & Brief</h3>
+          <p class="step__text" data-i18n="step1_text">Reach out to us and fill out a short brief describing your
+            business needs</p>
         </div>
-        <div class="partner-box__perk">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          <span data-i18n="pp_perk2">Flexible conditions</span>
+        <div class="step">
+          <div class="step__number">02</div>
+          <h3 class="step__title" data-i18n="step2_title">API Integration</h3>
+          <p class="step__text" data-i18n="step2_text">Quick H2H API integration with full documentation and dedicated
+            support</p>
         </div>
-        <div class="partner-box__perk">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          <span data-i18n="pp_perk3">Transparent system</span>
+        <div class="step">
+          <div class="step__number">03</div>
+          <h3 class="step__title" data-i18n="step3_title">Start Earning</h3>
+          <p class="step__text" data-i18n="step3_text">Watch your balance grow with our reliable payment processing
+            infrastructure</p>
         </div>
       </div>
-      <form class="partner-form" onsubmit="handlePartnerForm(event)">
-        <input type="text" class="partner-form__input" data-i18n-placeholder="pp_placeholder" placeholder="Your preferred contact method" required>
-        <button type="submit" class="btn btn--primary" data-i18n="pp_submit">Apply</button>
+    </div>
+  </section>
+
+  <!-- FOR TRADERS -->
+  <section class="section section--alt" id="traders">
+    <div class="container">
+      <div class="split">
+        <div class="split__content fade-in">
+          <div class="split__label" data-i18n="traders_label">For Traders</div>
+          <h2 class="split__title" data-i18n="traders_title">Unlimited Traffic & Full Toolkit</h2>
+          <p class="split__text" data-i18n="traders_text">
+            We provide unlimited traffic and a complete set of proprietary tools for your work. Unique P2P processing
+            method with personal dashboard.
+          </p>
+          <div class="split__features">
+            <div class="split__feature">
+              <div class="split__feature-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="split__feature-title" data-i18n="t_feat1_title">Personal Dashboard</div>
+                <div class="split__feature-text" data-i18n="t_feat1_text">Add payment details, confirm transactions
+                </div>
+              </div>
+            </div>
+            <div class="split__feature">
+              <div class="split__feature-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <div>
+                <div class="split__feature-title" data-i18n="t_feat2_title">Telegram Bot</div>
+                <div class="split__feature-text" data-i18n="t_feat2_text">Payin/payout notifications, request & error
+                  history</div>
+              </div>
+            </div>
+            <div class="split__feature">
+              <div class="split__feature-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="split__feature-title" data-i18n="t_feat3_title">SMS & Push Parsing</div>
+                <div class="split__feature-text" data-i18n="t_feat3_text">From banks, using SMS-forwarder technology
+                </div>
+              </div>
+            </div>
+            <div class="split__feature">
+              <div class="split__feature-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="split__feature-title" data-i18n="t_feat4_title">Rate Parser & Logs</div>
+                <div class="split__feature-text" data-i18n="t_feat4_text">Separate service for currency rates, full
+                  request history</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="split__visual fade-in">
+          <div class="split__visual-mockup">
+            <div class="mockup-bar mockup-bar--highlight">
+              <div class="mockup-bar__dot"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:55%"></div>
+                <div class="mockup-bar__line" style="width:80%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar">
+              <div class="mockup-bar__dot" style="opacity:0.3"></div>
+              <div style="flex:1; display:flex; gap:8px; align-items:center;">
+                <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
+                <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
+                <div class="mockup-bar__line" style="width:30%; height:20px; border-radius:6px;"></div>
+              </div>
+            </div>
+            <div class="mockup-bar mockup-bar--highlight">
+              <div class="mockup-bar__dot"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:90%"></div>
+                <div class="mockup-bar__line" style="width:65%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar">
+              <div class="mockup-bar__dot" style="opacity:0.3"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:40%"></div>
+                <div class="mockup-bar__line" style="width:72%"></div>
+              </div>
+            </div>
+            <div class="mockup-bar">
+              <div class="mockup-bar__dot" style="opacity:0.3"></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+                <div class="mockup-bar__line" style="width:60%"></div>
+                <div class="mockup-bar__line" style="width:35%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKING WITH US -->
+  <section class="section" id="benefits">
+    <div class="container">
+      <div class="section__header fade-in">
+        <div class="section__label" data-i18n="ww_label">Why Protocol</div>
+        <h2 class="section__title" data-i18n="ww_title">Working With Us</h2>
+      </div>
+      <div class="cards-row fade-in">
+        <div class="info-card">
+          <h3 class="info-card__title" data-i18n="ww1_title">User-Friendly Interface</h3>
+          <p class="info-card__text" data-i18n="ww1_text">Simple and intuitive dashboards that require no training to
+            use</p>
+        </div>
+        <div class="info-card">
+          <h3 class="info-card__title" data-i18n="ww2_title">Support 24/7</h3>
+          <p class="info-card__text" data-i18n="ww2_text">Dedicated manager assigned to you who will train and resolve
+            any issues</p>
+        </div>
+        <div class="info-card">
+          <h3 class="info-card__title" data-i18n="ww3_title">Conditions</h3>
+          <p class="info-card__text" data-i18n="ww3_text">No limits, individual rates, cryptocurrency buying and selling
+          </p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 48px;" class="fade-in">
+        <button class="btn btn--primary" onclick="openPopup()" data-i18n="ww_cta">Quick Onboarding!</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER PROGRAM -->
+  <section class="section partner-section" id="partner">
+    <div class="container">
+      <div class="partner-box fade-in">
+        <h2 class="partner-box__title" data-i18n="pp_title">Partner Program</h2>
+        <p class="partner-box__desc" data-i18n="pp_desc">Recommend our company to traders and merchants and earn
+          commission!</p>
+        <div class="partner-box__perks">
+          <div class="partner-box__perk">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span data-i18n="pp_perk1">High commission %</span>
+          </div>
+          <div class="partner-box__perk">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span data-i18n="pp_perk2">Flexible conditions</span>
+          </div>
+          <div class="partner-box__perk">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span data-i18n="pp_perk3">Transparent system</span>
+          </div>
+        </div>
+        <form class="partner-form" onsubmit="handlePartnerForm(event)">
+          <input type="text" class="partner-form__input" data-i18n-placeholder="pp_placeholder"
+            placeholder="Your preferred contact method" required>
+          <button type="submit" class="btn btn--primary" data-i18n="pp_submit">Apply</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copy">© 2025 Protocol FinTech. <span data-i18n="footer_rights">All rights reserved.</span>
+        </div>
+        <div class="footer__socials">
+          <a href="https://t.me/protocolsupport" target="_blank" class="footer__social" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+          </a>
+          <a href="mailto:support@protocol-s.io" class="footer__social" aria-label="Email">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- CONTACT POPUP -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <button class="popup__close" onclick="closePopup()">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h3 class="popup__title" data-i18n="popup_title">Get in Touch</h3>
+      <p class="popup__desc" data-i18n="popup_desc">Leave your contact and our specialist will reach out shortly!</p>
+      <form class="popup__form" onsubmit="handleContactForm(event)">
+        <input type="text" class="popup__input" data-i18n-placeholder="popup_placeholder"
+          placeholder="Your preferred contact method" required>
+        <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;"
+          data-i18n="popup_submit">Send</button>
       </form>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <div class="footer__copy">© 2025 Protocol FinTech. <span data-i18n="footer_rights">All rights reserved.</span></div>
-      <div class="footer__socials">
-        <a href="https://t.me/protocolsupport" target="_blank" class="footer__social" aria-label="Telegram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        </a>
-        <a href="mailto:support@protocol-s.io" class="footer__social" aria-label="Email">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+  <script>
+    const translations = {
+      en: {
+        nav_merchants: 'For Merchants',
+        nav_traders: 'For Traders',
+        nav_partner: 'Partner Program',
+        nav_contact: 'Contact Us',
+        hero_badge: 'Payment Ecosystem',
+        hero_title_accent: 'Fiat & Crypto',
+        hero_title_rest: 'Acquiring Solutions',
+        hero_subtitle: 'Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders. All-in-one payment processing infrastructure.',
+        hero_cta: 'Book Onboarding',
+        hero_cta2: 'Learn More',
+        merchants_label: 'For Merchants',
+        merchants_title: 'Payment Processing Aggregator',
+        merchants_desc: 'Aggregator of processing solutions (payment acceptance and mass payouts) for high-risk industries',
+        m_feat1_title: 'Company-Friendly',
+        m_feat1_text: 'No holds, chargebacks, or rolling reserve',
+        m_feat2_title: 'Speed & Flexibility',
+        m_feat2_text: 'Fast H2H integration with customizable flow',
+        m_feat3_title: '24/7 Expert Support',
+        m_feat3_text: 'Dedicated specialists with years of FinTech & AI experience',
+        m_feat4_title: 'Scalability',
+        m_feat4_text: 'Processes millions of $ daily, 24/7',
+        m_feat5_title: 'Blockchain Node',
+        m_feat5_text: 'Proprietary crypto-processing solutions',
+        adv_label: 'Advantages',
+        adv_title: 'More Benefits',
+        adv_desc: 'P2P is the best method for payment acceptance in the CIS region',
+        adv1_title: 'Specialization',
+        adv1_list: '<li>iGaming (gambling, betting)</li><li>Forex, Crypto</li><li>Dating, Adult</li><li>Loans, Credits</li>',
+        adv2_title: 'Cascading',
+        adv2_text: 'Declined transactions are redirected to other banks, increasing payment conversion rates',
+        adv3_title: 'Automation',
+        adv3_list: '<li>Average transaction processing — 15 seconds</li><li>Instant 100% verification with callback status</li>',
+        adv4_title: 'Conversion',
+        adv4_text: 'Best UX widgets and modern tech solutions guarantee 80% average rate, up to 93%. No KYC!',
+        adv5_title: 'Settlement',
+        adv5_list: '<li>Daily withdrawal in ~20 min</li><li>Any currency (USDT, BTC, etc.)</li><li>No limits on amount or requests</li><li>Zero fees!</li>',
+        adv6_title: 'Security',
+        adv6_text: 'Payments processed through a secure connection with PCI DSS standards and local regulations',
+        adv7_title: 'Deposit/Withdrawal',
+        adv7_text: 'Wide range of transaction amounts and equivalent currencies supported',
+        adv8_title: 'P2P Methods',
+        adv8_list: '<li>QR</li><li>SBP (Faster Payments)</li><li>Card2Card</li>',
+        adv9_title: 'API',
+        adv9_text: 'Create payin/payout transactions, receive statuses and callbacks through clear and simple documentation',
+        adv_cta: 'Get Conditions',
+        bo_label: 'BackOffice',
+        bo_title: 'Convenient Dashboard',
+        bo_text: 'Covers all operational needs — statements, limits, alerts, history, analytics, and more.',
+        bo_cta: 'Request a Demo',
+        steps_label: 'Quick Start',
+        steps_title: '3 Simple Steps to Start',
+        steps_desc: 'Connect in a couple of hours. No contracts, approvals, or compliance!',
+        step1_title: 'Contact & Brief',
+        step1_text: 'Reach out to us and fill out a short brief describing your business needs',
+        step2_title: 'API Integration',
+        step2_text: 'Quick H2H API integration with full documentation and dedicated support',
+        step3_title: 'Start Earning',
+        step3_text: 'Watch your balance grow with our reliable payment processing infrastructure',
+        traders_label: 'For Traders',
+        traders_title: 'Unlimited Traffic & Full Toolkit',
+        traders_text: 'We provide unlimited traffic and a complete set of proprietary tools for your work. Unique P2P processing method with personal dashboard.',
+        t_feat1_title: 'Personal Dashboard',
+        t_feat1_text: 'Add payment details, confirm transactions',
+        t_feat2_title: 'Telegram Bot',
+        t_feat2_text: 'Payin/payout notifications, request & error history',
+        t_feat3_title: 'SMS & Push Parsing',
+        t_feat3_text: 'From banks, using SMS-forwarder technology',
+        t_feat4_title: 'Rate Parser & Logs',
+        t_feat4_text: 'Separate service for currency rates, full request history',
+        ww_label: 'Why Protocol',
+        ww_title: 'Working With Us',
+        ww1_title: 'User-Friendly Interface',
+        ww1_text: 'Simple and intuitive dashboards that require no training to use',
+        ww2_title: 'Support 24/7',
+        ww2_text: 'Dedicated manager assigned to you who will train and resolve any issues',
+        ww3_title: 'Conditions',
+        ww3_text: 'No limits, individual rates, cryptocurrency buying and selling',
+        ww_cta: 'Quick Onboarding!',
+        pp_title: 'Partner Program',
+        pp_desc: 'Recommend our company to traders and merchants and earn commission!',
+        pp_perk1: 'High commission %',
+        pp_perk2: 'Flexible conditions',
+        pp_perk3: 'Transparent system',
+        pp_placeholder: 'Your preferred contact method',
+        pp_submit: 'Apply',
+        footer_rights: 'All rights reserved.',
+        popup_title: 'Get in Touch',
+        popup_desc: 'Leave your contact and our specialist will reach out shortly!',
+        popup_placeholder: 'Your preferred contact method',
+        popup_submit: 'Send',
+      },
+      ko: {
+        nav_merchants: '가맹점',
+        nav_traders: '트레이더',
+        nav_partner: '파트너 프로그램',
+        nav_contact: '문의하기',
+        hero_badge: '결제 생태계',
+        hero_title_accent: '법정화폐 & 암호화폐',
+        hero_title_rest: '결제 솔루션',
+        hero_subtitle: '가맹점을 위한 법정화폐 및 암호화폐 결제 수단. 트레이더를 위한 풀필먼트 ERP 플랫폼. 올인원 결제 처리 인프라.',
+        hero_cta: '온보딩 예약',
+        hero_cta2: '더 알아보기',
+        merchants_label: '가맹점',
+        merchants_title: '결제 처리 애그리게이터',
+        merchants_desc: '고위험 산업을 위한 결제 수락 및 대량 지급 처리 솔루션 애그리게이터',
+        m_feat1_title: '비즈니스 친화적',
+        m_feat1_text: '홀드, 차지백, 롤링 리저브 없음',
+        m_feat2_title: '속도 & 유연성',
+        m_feat2_text: '커스터마이징 가능한 빠른 H2H 통합',
+        m_feat3_title: '24/7 전문 지원',
+        m_feat3_text: '핀테크 & AI 분야 다년간 경험의 전문가',
+        m_feat4_title: '확장성',
+        m_feat4_text: '24/7 매일 수백만 달러 처리',
+        m_feat5_title: '블록체인 노드',
+        m_feat5_text: '자체 암호화폐 처리 솔루션',
+        adv_label: '장점',
+        adv_title: '더 많은 혜택',
+        adv_desc: 'P2P는 CIS 지역에서 최고의 결제 수락 방법입니다',
+        adv1_title: '전문 분야',
+        adv1_list: '<li>아이게이밍 (겜블링, 베팅)</li><li>외환, 암호화폐</li><li>데이팅, 성인</li><li>대출, 신용</li>',
+        adv2_title: '캐스케이딩',
+        adv2_text: '거부된 거래는 다른 은행으로 리디렉션되어 결제 전환율을 높입니다',
+        adv3_title: '자동화',
+        adv3_list: '<li>평균 거래 처리 시간 — 15초</li><li>콜백 상태를 통한 즉시 100% 확인</li>',
+        adv4_title: '전환율',
+        adv4_text: '최고의 UX 위젯과 최신 기술 솔루션으로 평균 80%, 최대 93% 보장. KYC 없음!',
+        adv5_title: '정산',
+        adv5_list: '<li>~20분 내 일일 출금</li><li>모든 통화 (USDT, BTC 등)</li><li>금액 및 요청 제한 없음</li><li>수수료 제로!</li>',
+        adv6_title: '보안',
+        adv6_text: 'PCI DSS 표준 및 현지 규정을 준수하는 보안 연결을 통해 결제 처리',
+        adv7_title: '입출금',
+        adv7_text: '광범위한 거래 금액 및 동등한 통화 지원',
+        adv8_title: 'P2P 방법',
+        adv8_list: '<li>QR</li><li>SBP (빠른 결제)</li><li>Card2Card</li>',
+        adv9_title: 'API',
+        adv9_text: '명확하고 간단한 문서를 통해 payin/payout 거래 생성, 상태 및 콜백 수신',
+        adv_cta: '조건 확인',
+        bo_label: '백오피스',
+        bo_title: '편리한 대시보드',
+        bo_text: '명세서, 한도, 알림, 이력, 분석 등 모든 운영 요구를 충족합니다.',
+        bo_cta: '데모 요청',
+        steps_label: '빠른 시작',
+        steps_title: '시작을 위한 3단계',
+        steps_desc: '몇 시간 만에 연결. 계약, 승인, 컴플라이언스 불필요!',
+        step1_title: '연락 & 브리프',
+        step1_text: '연락하시고 비즈니스 요구를 설명하는 짧은 브리프를 작성하세요',
+        step2_title: 'API 통합',
+        step2_text: '전체 문서와 전담 지원으로 빠른 H2H API 통합',
+        step3_title: '수익 시작',
+        step3_text: '안정적인 결제 처리 인프라로 잔액이 늘어나는 것을 확인하세요',
+        traders_label: '트레이더',
+        traders_title: '무제한 트래픽 & 풀 툴킷',
+        traders_text: '무제한 트래픽과 작업을 위한 완전한 자체 도구 세트를 제공합니다. 개인 대시보드와 함께하는 고유한 P2P 처리 방법.',
+        t_feat1_title: '개인 대시보드',
+        t_feat1_text: '결제 세부정보 추가, 거래 확인',
+        t_feat2_title: '텔레그램 봇',
+        t_feat2_text: 'Payin/payout 알림, 요청 및 오류 이력',
+        t_feat3_title: 'SMS & 푸시 파싱',
+        t_feat3_text: 'SMS-포워더 기술을 사용한 은행 알림 파싱',
+        t_feat4_title: '환율 파서 & 로그',
+        t_feat4_text: '환율을 위한 별도 서비스, 전체 요청 이력',
+        ww_label: 'Protocol을 선택하는 이유',
+        ww_title: '우리와 함께',
+        ww1_title: '사용자 친화적 인터페이스',
+        ww1_text: '교육 없이도 사용할 수 있는 직관적인 대시보드',
+        ww2_title: '24/7 지원',
+        ww2_text: '교육하고 모든 문제를 해결해주는 전담 매니저',
+        ww3_title: '조건',
+        ww3_text: '제한 없음, 개별 요율, 암호화폐 매매',
+        ww_cta: '빠른 온보딩!',
+        pp_title: '파트너 프로그램',
+        pp_desc: '트레이더와 가맹점에 저희 회사를 추천하고 커미션을 받으세요!',
+        pp_perk1: '높은 커미션 %',
+        pp_perk2: '유연한 조건',
+        pp_perk3: '투명한 시스템',
+        pp_placeholder: '선호하는 연락 방법',
+        pp_submit: '신청',
+        footer_rights: '모든 권리 보유.',
+        popup_title: '연락하기',
+        popup_desc: '연락처를 남겨주시면 전문가가 곧 연락드리겠습니다!',
+        popup_placeholder: '선호하는 연락 방법',
+        popup_submit: '보내기',
+      }
+    };
 
-<!-- SCROLL TOP -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-</button>
+    let currentLang = 'en';
 
-<!-- CONTACT POPUP -->
-<div class="popup-overlay" id="popupOverlay">
-  <div class="popup">
-    <button class="popup__close" onclick="closePopup()">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
-    <h3 class="popup__title" data-i18n="popup_title">Get in Touch</h3>
-    <p class="popup__desc" data-i18n="popup_desc">Leave your contact and our specialist will reach out shortly!</p>
-    <form class="popup__form" onsubmit="handleContactForm(event)">
-      <input type="text" class="popup__input" data-i18n-placeholder="popup_placeholder" placeholder="Your preferred contact method" required>
-      <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;" data-i18n="popup_submit">Send</button>
-    </form>
-  </div>
-</div>
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
 
-<script>
-const translations = {
-  en: {
-    nav_merchants: 'For Merchants',
-    nav_traders: 'For Traders',
-    nav_partner: 'Partner Program',
-    nav_contact: 'Contact Us',
-    hero_badge: 'Payment Ecosystem',
-    hero_title_accent: 'Fiat & Crypto',
-    hero_title_rest: 'Acquiring Solutions',
-    hero_subtitle: 'Fiat and crypto acquiring for merchants. Fulfillment ERP platform for traders. All-in-one payment processing infrastructure.',
-    hero_cta: 'Book Onboarding',
-    hero_cta2: 'Learn More',
-    merchants_label: 'For Merchants',
-    merchants_title: 'Payment Processing Aggregator',
-    merchants_desc: 'Aggregator of processing solutions (payment acceptance and mass payouts) for high-risk industries',
-    m_feat1_title: 'Company-Friendly',
-    m_feat1_text: 'No holds, chargebacks, or rolling reserve',
-    m_feat2_title: 'Speed & Flexibility',
-    m_feat2_text: 'Fast H2H integration with customizable flow',
-    m_feat3_title: '24/7 Expert Support',
-    m_feat3_text: 'Dedicated specialists with years of FinTech & AI experience',
-    m_feat4_title: 'Scalability',
-    m_feat4_text: 'Processes millions of $ daily, 24/7',
-    m_feat5_title: 'Blockchain Node',
-    m_feat5_text: 'Proprietary crypto-processing solutions',
-    adv_label: 'Advantages',
-    adv_title: 'More Benefits',
-    adv_desc: 'P2P is the best method for payment acceptance in the CIS region',
-    adv1_title: 'Specialization',
-    adv1_list: '<li>iGaming (gambling, betting)</li><li>Forex, Crypto</li><li>Dating, Adult</li><li>Loans, Credits</li>',
-    adv2_title: 'Cascading',
-    adv2_text: 'Declined transactions are redirected to other banks, increasing payment conversion rates',
-    adv3_title: 'Automation',
-    adv3_list: '<li>Average transaction processing — 15 seconds</li><li>Instant 100% verification with callback status</li>',
-    adv4_title: 'Conversion',
-    adv4_text: 'Best UX widgets and modern tech solutions guarantee 80% average rate, up to 93%. No KYC!',
-    adv5_title: 'Settlement',
-    adv5_list: '<li>Daily withdrawal in ~20 min</li><li>Any currency (USDT, BTC, etc.)</li><li>No limits on amount or requests</li><li>Zero fees!</li>',
-    adv6_title: 'Security',
-    adv6_text: 'Payments processed through a secure connection with PCI DSS standards and local regulations',
-    adv7_title: 'Deposit/Withdrawal',
-    adv7_text: 'Wide range of transaction amounts and equivalent currencies supported',
-    adv8_title: 'P2P Methods',
-    adv8_list: '<li>QR</li><li>SBP (Faster Payments)</li><li>Card2Card</li>',
-    adv9_title: 'API',
-    adv9_text: 'Create payin/payout transactions, receive statuses and callbacks through clear and simple documentation',
-    adv_cta: 'Get Conditions',
-    bo_label: 'BackOffice',
-    bo_title: 'Convenient Dashboard',
-    bo_text: 'Covers all operational needs — statements, limits, alerts, history, analytics, and more.',
-    bo_cta: 'Request a Demo',
-    steps_label: 'Quick Start',
-    steps_title: '3 Simple Steps to Start',
-    steps_desc: 'Connect in a couple of hours. No contracts, approvals, or compliance!',
-    step1_title: 'Contact & Brief',
-    step1_text: 'Reach out to us and fill out a short brief describing your business needs',
-    step2_title: 'API Integration',
-    step2_text: 'Quick H2H API integration with full documentation and dedicated support',
-    step3_title: 'Start Earning',
-    step3_text: 'Watch your balance grow with our reliable payment processing infrastructure',
-    traders_label: 'For Traders',
-    traders_title: 'Unlimited Traffic & Full Toolkit',
-    traders_text: 'We provide unlimited traffic and a complete set of proprietary tools for your work. Unique P2P processing method with personal dashboard.',
-    t_feat1_title: 'Personal Dashboard',
-    t_feat1_text: 'Add payment details, confirm transactions',
-    t_feat2_title: 'Telegram Bot',
-    t_feat2_text: 'Payin/payout notifications, request & error history',
-    t_feat3_title: 'SMS & Push Parsing',
-    t_feat3_text: 'From banks, using SMS-forwarder technology',
-    t_feat4_title: 'Rate Parser & Logs',
-    t_feat4_text: 'Separate service for currency rates, full request history',
-    ww_label: 'Why Protocol',
-    ww_title: 'Working With Us',
-    ww1_title: 'User-Friendly Interface',
-    ww1_text: 'Simple and intuitive dashboards that require no training to use',
-    ww2_title: 'Support 24/7',
-    ww2_text: 'Dedicated manager assigned to you who will train and resolve any issues',
-    ww3_title: 'Conditions',
-    ww3_text: 'No limits, individual rates, cryptocurrency buying and selling',
-    ww_cta: 'Quick Onboarding!',
-    pp_title: 'Partner Program',
-    pp_desc: 'Recommend our company to traders and merchants and earn commission!',
-    pp_perk1: 'High commission %',
-    pp_perk2: 'Flexible conditions',
-    pp_perk3: 'Transparent system',
-    pp_placeholder: 'Your preferred contact method',
-    pp_submit: 'Apply',
-    footer_rights: 'All rights reserved.',
-    popup_title: 'Get in Touch',
-    popup_desc: 'Leave your contact and our specialist will reach out shortly!',
-    popup_placeholder: 'Your preferred contact method',
-    popup_submit: 'Send',
-  },
-  ko: {
-    nav_merchants: '가맹점',
-    nav_traders: '트레이더',
-    nav_partner: '파트너 프로그램',
-    nav_contact: '문의하기',
-    hero_badge: '결제 생태계',
-    hero_title_accent: '법정화폐 & 암호화폐',
-    hero_title_rest: '결제 솔루션',
-    hero_subtitle: '가맹점을 위한 법정화폐 및 암호화폐 결제 수단. 트레이더를 위한 풀필먼트 ERP 플랫폼. 올인원 결제 처리 인프라.',
-    hero_cta: '온보딩 예약',
-    hero_cta2: '더 알아보기',
-    merchants_label: '가맹점',
-    merchants_title: '결제 처리 애그리게이터',
-    merchants_desc: '고위험 산업을 위한 결제 수락 및 대량 지급 처리 솔루션 애그리게이터',
-    m_feat1_title: '비즈니스 친화적',
-    m_feat1_text: '홀드, 차지백, 롤링 리저브 없음',
-    m_feat2_title: '속도 & 유연성',
-    m_feat2_text: '커스터마이징 가능한 빠른 H2H 통합',
-    m_feat3_title: '24/7 전문 지원',
-    m_feat3_text: '핀테크 & AI 분야 다년간 경험의 전문가',
-    m_feat4_title: '확장성',
-    m_feat4_text: '24/7 매일 수백만 달러 처리',
-    m_feat5_title: '블록체인 노드',
-    m_feat5_text: '자체 암호화폐 처리 솔루션',
-    adv_label: '장점',
-    adv_title: '더 많은 혜택',
-    adv_desc: 'P2P는 CIS 지역에서 최고의 결제 수락 방법입니다',
-    adv1_title: '전문 분야',
-    adv1_list: '<li>아이게이밍 (겜블링, 베팅)</li><li>외환, 암호화폐</li><li>데이팅, 성인</li><li>대출, 신용</li>',
-    adv2_title: '캐스케이딩',
-    adv2_text: '거부된 거래는 다른 은행으로 리디렉션되어 결제 전환율을 높입니다',
-    adv3_title: '자동화',
-    adv3_list: '<li>평균 거래 처리 시간 — 15초</li><li>콜백 상태를 통한 즉시 100% 확인</li>',
-    adv4_title: '전환율',
-    adv4_text: '최고의 UX 위젯과 최신 기술 솔루션으로 평균 80%, 최대 93% 보장. KYC 없음!',
-    adv5_title: '정산',
-    adv5_list: '<li>~20분 내 일일 출금</li><li>모든 통화 (USDT, BTC 등)</li><li>금액 및 요청 제한 없음</li><li>수수료 제로!</li>',
-    adv6_title: '보안',
-    adv6_text: 'PCI DSS 표준 및 현지 규정을 준수하는 보안 연결을 통해 결제 처리',
-    adv7_title: '입출금',
-    adv7_text: '광범위한 거래 금액 및 동등한 통화 지원',
-    adv8_title: 'P2P 방법',
-    adv8_list: '<li>QR</li><li>SBP (빠른 결제)</li><li>Card2Card</li>',
-    adv9_title: 'API',
-    adv9_text: '명확하고 간단한 문서를 통해 payin/payout 거래 생성, 상태 및 콜백 수신',
-    adv_cta: '조건 확인',
-    bo_label: '백오피스',
-    bo_title: '편리한 대시보드',
-    bo_text: '명세서, 한도, 알림, 이력, 분석 등 모든 운영 요구를 충족합니다.',
-    bo_cta: '데모 요청',
-    steps_label: '빠른 시작',
-    steps_title: '시작을 위한 3단계',
-    steps_desc: '몇 시간 만에 연결. 계약, 승인, 컴플라이언스 불필요!',
-    step1_title: '연락 & 브리프',
-    step1_text: '연락하시고 비즈니스 요구를 설명하는 짧은 브리프를 작성하세요',
-    step2_title: 'API 통합',
-    step2_text: '전체 문서와 전담 지원으로 빠른 H2H API 통합',
-    step3_title: '수익 시작',
-    step3_text: '안정적인 결제 처리 인프라로 잔액이 늘어나는 것을 확인하세요',
-    traders_label: '트레이더',
-    traders_title: '무제한 트래픽 & 풀 툴킷',
-    traders_text: '무제한 트래픽과 작업을 위한 완전한 자체 도구 세트를 제공합니다. 개인 대시보드와 함께하는 고유한 P2P 처리 방법.',
-    t_feat1_title: '개인 대시보드',
-    t_feat1_text: '결제 세부정보 추가, 거래 확인',
-    t_feat2_title: '텔레그램 봇',
-    t_feat2_text: 'Payin/payout 알림, 요청 및 오류 이력',
-    t_feat3_title: 'SMS & 푸시 파싱',
-    t_feat3_text: 'SMS-포워더 기술을 사용한 은행 알림 파싱',
-    t_feat4_title: '환율 파서 & 로그',
-    t_feat4_text: '환율을 위한 별도 서비스, 전체 요청 이력',
-    ww_label: 'Protocol을 선택하는 이유',
-    ww_title: '우리와 함께',
-    ww1_title: '사용자 친화적 인터페이스',
-    ww1_text: '교육 없이도 사용할 수 있는 직관적인 대시보드',
-    ww2_title: '24/7 지원',
-    ww2_text: '교육하고 모든 문제를 해결해주는 전담 매니저',
-    ww3_title: '조건',
-    ww3_text: '제한 없음, 개별 요율, 암호화폐 매매',
-    ww_cta: '빠른 온보딩!',
-    pp_title: '파트너 프로그램',
-    pp_desc: '트레이더와 가맹점에 저희 회사를 추천하고 커미션을 받으세요!',
-    pp_perk1: '높은 커미션 %',
-    pp_perk2: '유연한 조건',
-    pp_perk3: '투명한 시스템',
-    pp_placeholder: '선호하는 연락 방법',
-    pp_submit: '신청',
-    footer_rights: '모든 권리 보유.',
-    popup_title: '연락하기',
-    popup_desc: '연락처를 남겨주시면 전문가가 곧 연락드리겠습니다!',
-    popup_placeholder: '선호하는 연락 방법',
-    popup_submit: '보내기',
-  }
-};
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[lang][key]) el.innerHTML = translations[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) el.placeholder = translations[lang][key];
+      });
 
-let currentLang = 'en';
+      document.querySelectorAll('.nav__lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
 
-function setLanguage(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) el.textContent = translations[lang][key];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.getAttribute('data-i18n-html');
-    if (translations[lang][key]) el.innerHTML = translations[lang][key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (translations[lang][key]) el.placeholder = translations[lang][key];
-  });
-
-  document.querySelectorAll('.nav__lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  document.title = lang === 'ko' ? 'Protocol — 결제 생태계' : 'Protocol — Payment Ecosystem';
-}
-
-document.querySelectorAll('.nav__lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-});
-
-// Mobile menu
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-function closeMobile() { mobileMenu.classList.remove('open'); }
-
-// Popup
-function openPopup() { document.getElementById('popupOverlay').classList.add('open'); }
-function closePopup() { document.getElementById('popupOverlay').classList.remove('open'); }
-document.getElementById('popupOverlay').addEventListener('click', (e) => {
-  if (e.target === e.currentTarget) closePopup();
-});
-
-// Scroll top button
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
-});
-
-// Intersection Observer for fade-in
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      document.title = lang === 'ko' ? 'Protocol — 결제 생태계' : 'Protocol — Payment Ecosystem';
     }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.nav__lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
 
-// Form handlers
-function handleContactForm(e) {
-  e.preventDefault();
-  const input = e.target.querySelector('input');
-  alert(currentLang === 'ko' ? '감사합니다! 곧 연락드리겠습니다.' : 'Thank you! We will contact you shortly.');
-  input.value = '';
-  closePopup();
-}
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
 
-function handlePartnerForm(e) {
-  e.preventDefault();
-  const input = e.target.querySelector('input');
-  alert(currentLang === 'ko' ? '감사합니다! 파트너 프로그램 신청이 접수되었습니다.' : 'Thank you! Your partner application has been received.');
-  input.value = '';
-}
-</script>
+    // Popup
+    function openPopup() { document.getElementById('popupOverlay').classList.add('open'); }
+    function closePopup() { document.getElementById('popupOverlay').classList.remove('open'); }
+    document.getElementById('popupOverlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closePopup();
+    });
+
+    // Scroll top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form handlers
+    function handleContactForm(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      alert(currentLang === 'ko' ? '감사합니다! 곧 연락드리겠습니다.' : 'Thank you! We will contact you shortly.');
+      input.value = '';
+      closePopup();
+    }
+
+    function handlePartnerForm(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      alert(currentLang === 'ko' ? '감사합니다! 파트너 프로그램 신청이 접수되었습니다.' : 'Thank you! Your partner application has been received.');
+      input.value = '';
+    }
+  </script>
 
 </body>
+
 </html>
