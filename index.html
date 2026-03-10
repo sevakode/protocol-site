@@ -1911,19 +1911,46 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     // Form handlers
-    function handleContactForm(e) {
-      e.preventDefault();
-      const input = e.target.querySelector('input');
-      alert(currentLang === 'ko' ? '감사합니다! 곧 연락드리겠습니다.' : 'Thank you! We will contact you shortly.');
-      input.value = '';
-      closePopup();
+    async function submitForm(contact, formType) {
+      const res = await fetch('/handler.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contact, form_type: formType }),
+      });
+      return res.ok;
     }
 
-    function handlePartnerForm(e) {
+    async function handleContactForm(e) {
       e.preventDefault();
       const input = e.target.querySelector('input');
-      alert(currentLang === 'ko' ? '감사합니다! 파트너 프로그램 신청이 접수되었습니다.' : 'Thank you! Your partner application has been received.');
-      input.value = '';
+      const btn = e.target.querySelector('button');
+      btn.disabled = true;
+      try {
+        await submitForm(input.value, 'contact');
+        alert(currentLang === 'ko' ? '감사합니다! 곧 연락드리겠습니다.' : 'Thank you! We will contact you shortly.');
+        input.value = '';
+        closePopup();
+      } catch {
+        alert(currentLang === 'ko' ? '오류가 발생했습니다. 다시 시도해주세요.' : 'Something went wrong. Please try again.');
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    async function handlePartnerForm(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.disabled = true;
+      try {
+        await submitForm(input.value, 'partner');
+        alert(currentLang === 'ko' ? '감사합니다! 파트너 프로그램 신청이 접수되었습니다.' : 'Thank you! Your partner application has been received.');
+        input.value = '';
+      } catch {
+        alert(currentLang === 'ko' ? '오류가 발생했습니다. 다시 시도해주세요.' : 'Something went wrong. Please try again.');
+      } finally {
+        btn.disabled = false;
+      }
     }
   </script>
 
